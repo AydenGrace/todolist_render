@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const config = require("./database/configDB");
 const express = require("express");
 const app = express();
+const NODE_ENV = "production";
 const PORT = process.env.PORT || 5000;
 const cors = require("cors");
 //render
@@ -22,7 +23,7 @@ app.use(
 const routes = require("./routes");
 app.use(routes);
 
-if (process.env.NODE_ENV === "production") {
+if (NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
   app.get(/(.*)/, (req, res) => {

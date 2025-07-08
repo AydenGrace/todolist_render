@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { createRef } from "react";
+import React, {useState} from "react";
+import {createRef} from "react";
 
-export default function AddTodo({ addTodo }) {
+export default function AddTodo({addTodo}) {
   // variable d'état pour stocker la saisie de l'inout initialisée avec une chaine de caractère vide
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
@@ -14,17 +14,20 @@ export default function AddTodo({ addTodo }) {
   async function createTodo() {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/todos/addTodo", {
-        method: "POST",
-        body: JSON.stringify({
-          content: value,
-          edit: false,
-          done: false,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://todolist-render-l7tg.onrender.com/api/todos/addTodo",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            content: value,
+            edit: false,
+            done: false,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (response.ok) {
         const todo = await response.json();
         addTodo(todo);

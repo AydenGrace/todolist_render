@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-function EditTodo({ todo, updateTodo }) {
+function EditTodo({todo, updateTodo}) {
   const [valueTodo, setValueTodo] = useState(todo.content);
 
   async function editOneTodo(newTodo) {
     try {
-      const response = await fetch("http://localhost:5000/api/todos/update", {
-        method: "PATCH",
-        body: JSON.stringify(newTodo),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://todolist-render-l7tg.onrender.com/api/todos/update",
+        {
+          method: "PATCH",
+          body: JSON.stringify(newTodo),
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
       if (response.ok) {
         // const updatedTodo = await response.json();
         // console.log({ updatedTodo });
@@ -44,7 +47,7 @@ function EditTodo({ todo, updateTodo }) {
         className="flex-fill mr-15"
       />
       <button
-        onClick={() => editOneTodo({ ...todo, edit: false })}
+        onClick={() => editOneTodo({...todo, edit: false})}
         className="btn btn-primary mr-15"
       >
         Annuler
