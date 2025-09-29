@@ -8,7 +8,7 @@ const cors = require("cors");
 //render
 const path = require("path");
 
-const __DIRNAME = path.resolve();
+// const __DIRNAME = path.resolve();
 
 app.use(express.static(path.join(__DIRNAME, "/client/dist")));
 
