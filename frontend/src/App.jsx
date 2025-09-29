@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import AddTodo from "./components/AddTodo";
-import TodoList from "./components/Todolist";
-import { url } from "./url";
+// import TodoList from "./components/Todolist";
+import {url} from "./url";
 
 function App() {
   // variable d'état pour stocker nos todos initialisée avec un tableau vide
@@ -38,7 +38,7 @@ function App() {
   }
 
   return (
-    <div className="d-flex center" style={{ minHeight: "100vh" }}>
+    <div className="d-flex center" style={{minHeight: "100vh"}}>
       <div className="card p-20">
         <h1 className="mb-20">Todo List</h1>
         <AddTodo addTodo={addTodo} />
