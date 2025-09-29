@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import AddTodo from "./components/AddTodo";
-// import TodoList from "./components/Todolist";
+import TodoList from "./components/Todolist";
 import {url} from "./url";
 
 function App() {
